@@ -2,7 +2,7 @@
 
 A stunning, responsive landing page for Africa's premier agricultural network, connecting farmers, suppliers, and businesses.
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/trussugavi01/afrimart)
 
 ## Project Overview
 
@@ -72,7 +72,7 @@ This command will build the application and deploy it using the Wrangler CLI.
 
 Alternatively, you can deploy directly from your GitHub repository with a single click:
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/trussugavi01/afrimart)
 
 ## Project Structure
 
