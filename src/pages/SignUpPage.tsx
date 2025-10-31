@@ -17,6 +17,7 @@ export function SignUpPage() {
       email: '',
       password: '',
       confirmPassword: '',
+      profilePhoto: undefined,
     },
   });
   const handleSignUp = (values: SignUpSchema) => {
@@ -86,6 +87,23 @@ export function SignUpPage() {
                     <FormLabel>Confirm Password</FormLabel>
                     <FormControl>
                       <Input type="password" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="profilePhoto"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Profile Photo</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => field.onChange(e.target.files)}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
