@@ -65,8 +65,17 @@ export const columns: ColumnDef<Member>[] = [
     cell: ({ row }) => {
       const role = row.getValue("role") as string;
       return (
-        <Badge variant={role === "Admin" ? "default" : "secondary"}>
+        <Badge
+          variant={
+            role === "Admin"
+              ? "default"
+              : role === "Manager"
+              ? "outline"
+              : "secondary"
+          }
+        >
           {role === "Admin" && <ShieldCheck className="mr-1 h-3 w-3" />}
+          {role === "Manager" && <ShieldCheck className="mr-1 h-3 w-3" />}
           {role}
         </Badge>
       );
