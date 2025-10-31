@@ -140,6 +140,7 @@ export function DashboardPage() {
           data={members}
           onAddMember={handleAddMember}
           meta={{
+            userRole: user?.role,
             onEdit: (member: Member) => setEditingMember(member),
             onDelete: (member: Member) => setDeletingMember(member),
           }}

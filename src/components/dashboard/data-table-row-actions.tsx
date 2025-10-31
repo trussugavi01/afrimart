@@ -17,11 +17,13 @@ export function DataTableRowActions<TData>({
   row,
   table,
 }: DataTableRowActionsProps<TData>) {
-  const { onEdit, onDelete } = table.options.meta as {
+  const { userRole, onEdit, onDelete } = table.options.meta as {
+    userRole: string;
     onEdit: (member: Member) => void;
     onDelete: (member: Member) => void;
   };
   const member = row.original as Member;
+  const isManager = userRole === "Manager";
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -39,6 +41,7 @@ export function DataTableRowActions<TData>({
         <DropdownMenuItem
           onClick={() => onDelete(member)}
           className="text-red-600 focus:text-red-600 focus:bg-red-50"
+          disabled={isManager}
         >
           Delete
         </DropdownMenuItem>

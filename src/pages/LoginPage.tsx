@@ -17,8 +17,8 @@ export function LoginPage() {
     const password = formData.get('password') as string;
     // Mock validation: find user and check password/role
     const user = members.find((m) => m.email === email);
-    // For this demo, we'll use a hardcoded password for all admins.
-    if (user && user.role === 'Admin' && password === 'password123') {
+    // For this demo, we'll use a hardcoded password for all admins and managers.
+    if (user && (user.role === 'Admin' || user.role === 'Manager') && password === 'password123') {
       login({
         id: user.id,
         fullName: user.fullName,
@@ -27,8 +27,8 @@ export function LoginPage() {
       });
       toast.success(`Welcome back, ${user.fullName}!`);
       navigate('/dashboard');
-    } else if (user && user.role !== 'Admin') {
-      toast.error('Access Denied. Only admins can log in.');
+    } else if (user && user.role !== 'Admin' && user.role !== 'Manager') {
+      toast.error('Access Denied. Only admins and managers can log in.');
     } else {
       toast.error('Invalid email or password.');
     }
